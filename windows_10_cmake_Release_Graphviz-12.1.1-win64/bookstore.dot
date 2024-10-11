@@ -1,0 +1,62 @@
+digraph Bookstore {
+    // Graph styling
+    graph [fontname="Arial", fontsize=12];
+    node [fontname="Arial", fontsize=10, shape=rectangle, style=filled, fillcolor="#f9f9f9", color="#333"];
+    edge [fontname="Arial", fontsize=10, color="#555"];
+
+    // Define the main book nodes
+    GreatGatsby [label="The Great Gatsby\n<http://example.org/bookstore#GreatGatsby>", fillcolor="#AED6F1"];
+    BriefHistoryOfTime [label="A Brief History of Time\n<http://example.org/bookstore#BriefHistoryOfTime>", fillcolor="#A9DFBF"];
+    
+    // Define the type node
+    BookType [label="ex:Book", shape=ellipse, fillcolor="#F9E79F"];
+
+    // Define property nodes for "The Great Gatsby"
+    GG_Title [label="ex:title\n\"The Great Gatsby\""];
+    GG_Author [label="ex:author\n\"F. Scott Fitzgerald\""];
+    GG_Year [label="ex:year\n1925"];
+    GG_Price [label="ex:price\n10.99"];
+    GG_Category [label="ex:category\n\"Fiction\""];
+    GG_Language [label="ex:language\n\"en\""];
+
+    // Define property nodes for "A Brief History of Time"
+    BHT_Title [label="ex:title\n\"A Brief History of Time\""];
+    BHT_Author [label="ex:author\n\"Stephen Hawking\""];
+    BHT_Year [label="ex:year\n1988"];
+    BHT_Price [label="ex:price\n15.99"];
+    BHT_Category [label="ex:category\n\"Non-Fiction\""];
+    BHT_Language [label="ex:language\n\"en\""];
+
+    // Connect properties to "The Great Gatsby"
+    GreatGatsby -> GG_Title [label="ex:title"];
+    GreatGatsby -> GG_Author [label="ex:author"];
+    GreatGatsby -> GG_Year [label="ex:year"];
+    GreatGatsby -> GG_Price [label="ex:price"];
+    GreatGatsby -> GG_Category [label="ex:category"];
+    GreatGatsby -> GG_Language [label="ex:language"];
+
+    // Connect properties to "A Brief History of Time"
+    BriefHistoryOfTime -> BHT_Title [label="ex:title"];
+    BriefHistoryOfTime -> BHT_Author [label="ex:author"];
+    BriefHistoryOfTime -> BHT_Year [label="ex:year"];
+    BriefHistoryOfTime -> BHT_Price [label="ex:price"];
+    BriefHistoryOfTime -> BHT_Category [label="ex:category"];
+    BriefHistoryOfTime -> BHT_Language [label="ex:language"];
+
+    // Connect books to their type
+    GreatGatsby -> BookType [label="rdf:type", style=dashed, color="#1F618D"];
+    BriefHistoryOfTime -> BookType [label="rdf:type", style=dashed, color="#1F618D"];
+
+        // Define subclass nodes
+    FictionBook [label="ex:FictionBook", shape=ellipse, fillcolor="#FAD7A0"];
+    NonFictionBook [label="ex:NonFictionBook", shape=ellipse, fillcolor="#FAD7A0"];
+
+    // Connect BookType to subclasses
+    BookType -> FictionBook [label="rdfs:subClassOf", style=dotted, color="#E67E22"];
+    BookType -> NonFictionBook [label="rdfs:subClassOf", style=dotted, color="#E67E22"];
+
+    // Connect specific books to their subclasses
+    GreatGatsby -> FictionBook [label="rdf:type", style=dashed, color="#1F618D"];
+    BriefHistoryOfTime -> NonFictionBook [label="rdf:type", style=dashed, color="#1F618D"];
+
+}
