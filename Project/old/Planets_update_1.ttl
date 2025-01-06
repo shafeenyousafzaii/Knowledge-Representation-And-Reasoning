@@ -1,0 +1,66 @@
+@prefix : <http://example.org/solarsystem#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Ontology Metadata
+<http://example.org/solarsystem> rdf:type rdf:Description ;
+    rdfs:label "Solar System Ontology" ;
+    rdfs:comment "An ontology describing planets and celestial objects in the solar system." .
+
+# Classes
+:Planet rdf:type rdfs:Class ;
+    rdfs:label "Planet" ;
+    rdfs:comment "A celestial body orbiting the Sun." .
+
+# Properties
+:mass rdf:type rdf:Property ;
+    rdfs:label "mass" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Mass of the planet in Earth masses." .
+
+:diameter rdf:type rdf:Property ;
+    rdfs:label "diameter" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Diameter of the planet in kilometers." .
+
+:hasMoon rdf:type rdf:Property ;
+    rdfs:label "has moon" ;
+    rdfs:domain :Planet ;
+    rdfs:range :Moon ;
+    rdfs:comment "Connects a planet to its moon(s)." .
+
+# Example Planets (Linked to Individual Files)
+:Mercury rdf:type :Planet ;
+    rdfs:label "Mercury" ;
+    rdfs:seeAlso <http://example.org/solarsystem/planets/mercury> .
+
+:Venus rdf:type :Planet ;
+    rdfs:label "Venus" ;
+    rdfs:seeAlso <http://example.org/solarsystem/planets/venus> .
+
+:Earth rdf:type :Planet ;
+    rdfs:label "Earth" ;
+    rdfs:seeAlso <http://example.org/solarsystem/planets/earth> .
+
+:Mars rdf:type :Planet ;
+    rdfs:label "Mars" ;
+    rdfs:seeAlso <http://example.org/solarsystem/planets/mars> .
+
+:Jupiter rdf:type :Planet ;
+    rdfs:label "Jupiter" ;
+    rdfs:seeAlso <http://example.org/solarsystem/planets/jupiter> .
+
+:Saturn rdf:type :Planet ;
+    rdfs:label "Saturn" ;
+    rdfs:seeAlso <http://example.org/solarsystem/planets/saturn> .
+
+:Uranus rdf:type :Planet ;
+    rdfs:label "Uranus" ;
+    rdfs:seeAlso <http://example.org/solarsystem/planets/uranus> .
+
+:Neptune rdf:type :Planet ;
+    rdfs:label "Neptune" ;
+    rdfs:seeAlso <http://example.org/solarsystem/planets/neptune> .

@@ -1,0 +1,32 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <https://example.org/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Class Declarations
+ex:Star rdf:type rdfs:Class ;
+    rdfs:label "Star"@en .
+
+ex:Planet rdf:type rdfs:Class ;
+    rdfs:label "Planet"@en .
+
+# Property Declarations
+ex:orbits rdf:type rdf:Property ;
+    rdfs:label "orbits"@en ;
+    rdfs:domain ex:Planet ;
+    rdfs:range ex:Star .
+
+ex:hasRadius rdf:type rdf:Property ;
+    rdfs:label "has radius"@en ;
+    rdfs:domain ex:Planet ;
+    rdfs:range xsd:decimal .
+
+# Instances
+ex:Sun rdf:type ex:Star ;
+    rdfs:label "Sun"@en .
+
+ex:Mercury rdf:type ex:Planet ;
+    rdfs:label "Mercury"@en ;
+    ex:orbits ex:Sun ;
+    ex:hasRadius "2439.7"^^xsd:decimal .

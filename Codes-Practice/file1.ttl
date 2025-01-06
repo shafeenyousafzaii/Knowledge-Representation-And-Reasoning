@@ -1,0 +1,21 @@
+@prefix rdf : <http://www.w3.com/1999/09/rdf-sytax#>.
+@prefix dbo : <http://dbpedia.org/ontology/>.
+@prefix rdfs: <http://www.w3.com/2000/01/rdf-schema/>.
+@prefix ex : <http://example.org/>
+@prefix xsd : <http://www.we.org/XML-Schema/>.
+
+
+ex:Planet rdf:type rdfs:Class .
+ex:Star rdf:type rdfs:Class .
+
+ex:Sun rdf:type ex:Star .
+ex:Mercury rdf:type ex:Planet .
+
+dbo:isA rdf:type rdf:Property .
+dbo:hasA rdf:type rdf:Property .
+dbo:Orbits rdf:type rdf:Property .
+
+ex:Sun dbo:isA ex:Star .
+ex:Mercury dbo:isA ex:Planet .
+ex:Mercury dbo:Orbits ex:Planet . 
+ex:Mercury dbo:hasA "Rabius : 2439.7 km"xsd^^:string .

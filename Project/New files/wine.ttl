@@ -1,0 +1,67 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wine: <http://www.ontotext.com/example/wine#> .
+
+wine:RedWine rdfs:subClassOf wine:Wine ;
+   rdfs:label "Red Wine" .
+wine:WhiteWine rdfs:subClassOf wine:Wine ;
+   rdfs:label "White Wine" .
+wine:RoseWine rdfs:subClassOf wine:Wine ;
+   rdfs:label "Rose Wine" .
+
+wine:Merlo
+    rdf:type wine:Grape ;
+    rdfs:label "Merlo" .
+
+wine:CabernetSauvignon
+    rdf:type wine:Grape ;
+    rdfs:label "Cabernet Sauvignon" .
+
+wine:CabernetFranc
+    rdf:type wine:Grape ;
+    rdfs:label "Cabernet Franc" .
+
+wine:PinotNoir
+    rdf:type wine:Grape ;
+    rdfs:label "Pinot Noir" .
+
+wine:Chardonnay
+    rdf:type wine:Grape ;
+    rdfs:label "Chardonnay" .
+
+wine:Yoyowine
+    rdf:type wine:RedWine ;
+    wine:madeFromGrape wine:CabernetSauvignon ;
+    wine:hasSugar "dry" ;
+    wine:hasYear "2013"^^xsd:integer ;
+    wine:hasWinery "Semantinos" .
+
+wine:Franvino
+    rdf:type wine:RedWine ;
+    wine:madeFromGrape wine:Merlo ;
+    wine:madeFromGrape wine:CabernetFranc ;
+    wine:hasSugar "dry" ;
+    wine:hasYear "2012"^^xsd:integer ;
+    wine:hasWinery "Semantinos" .
+
+wine:Noirette
+    rdf:type wine:RedWine ;
+    wine:madeFromGrape wine:PinotNoir ;
+    wine:hasSugar "medium" ;
+    wine:hasYear "2012"^^xsd:integer ;
+    wine:hasWinery "In vino veritas" .
+
+wine:Blanquito
+    rdf:type wine:WhiteWine ;
+    wine:madeFromGrape wine:Chardonnay ;
+    wine:hasSugar "dry" ;
+    wine:hasYear "2012"^^xsd:integer ;
+    wine:hasWinery "In vino veritas" .
+
+wine:Rozova
+    rdf:type wine:RoseWine ;
+    wine:madeFromGrape wine:PinotNoir ;
+    wine:hasSugar "medium" ;
+    wine:hasYear "2013"^^xsd:integer ;
+    wine:hasWinery "In vino veritas" .

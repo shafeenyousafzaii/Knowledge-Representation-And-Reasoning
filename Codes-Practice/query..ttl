@@ -1,0 +1,30 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX : <http://dbpedia.org/resource/>
+
+SELECT ?Father_Name ?Mother_Name
+FROM <http://dbpedia.org/>
+WHERE {
+    :Muhammad_Ali_Jinnah dbo:father ?Father .
+    :Muhammad_Ali_Jinnah dbo:mother ?Mother .
+    ?Father rdfs:label ?Father_Name .
+    ?Mother rdfs:label ?Mother_Name .
+    FILTER(LANG(?Father_Name) = "en" && LANG(?Mother_Name) = "en")
+}
+
+
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX : <http://dbpedia.org/resource/>
+
+    SELECT ?Successor_Name
+    FROM <http://dbpedia.org/>
+    WHERE {
+        :Muhammad_Ali_Jinnah dbo:successor ?Successor .
+        ?Successor rdfs:label ?Successor_Name .
+        FILTER(LANG(?Successor_Name) = "en")
+    }
+
+

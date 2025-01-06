@@ -1,0 +1,992 @@
+@prefix : <http://example.org/solarsystem#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### Ontology Metadata
+<http://example.org/solarsystem> rdf:type :SolarSystem ;
+    rdfs:label "Solar System" ;
+    rdfs:comment "An ontology describing the Solar System, its planets, and celestial objects." .
+
+### Classes
+:SolarSystem rdf:type rdfs:Class ;
+    rdfs:label "Solar System" ;
+    rdfs:comment "The Solar System containing planets and celestial objects." .
+
+:Planet rdf:type rdfs:Class ;
+    rdfs:label "Planet" ;
+    rdfs:comment "A celestial body orbiting the Sun." .
+
+:satellite rdf:type rdfs:Class ;
+    rdfs:label "satellite" ;
+    rdfs:comment "A natural satellite orbiting a planet." .
+
+### Property linking planets with moons
+:hasSatellite rdf:type rdf:Property ;
+    rdfs:label "has satellite" ;
+    rdfs:domain :Planet ;
+    rdfs:range :Moon ;
+    rdfs:comment "Links a planet to its moons." .
+
+:has_Planets rdf:type rdf:Property ;
+    rdfs:label "has Planets" ;
+    rdfs:domain :SolarSystem ;
+    rdfs:range :Planet ;
+    rdfs:comment "Links the Solar System to its planets." .
+
+### Properties
+:colorPlanet rdf:type rdf:Property ;
+    rdfs:label "colorPlanet" ;
+    rdfs:domain :Planet ;
+    rdfs:range rdf:Bag ;
+    rdfs:comment "Primary colorPlanets of the planet." .
+
+:mass rdf:type rdf:Property ;
+    rdfs:label "mass" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Mass of the planet in 10^24 kg." .
+
+:diameter rdf:type rdf:Property ;
+    rdfs:label "diameter" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Diameter of the planet in kilometers." .
+
+:density rdf:type rdf:Property ;
+    rdfs:label "density" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Density of the planet in kg/m^3." .
+
+:surfaceGravity rdf:type rdf:Property ;
+    rdfs:label "surface gravity" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Surface gravity of the planet in m/s^2." .
+
+:escapeVelocity rdf:type rdf:Property ;
+    rdfs:label "escape velocity" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Escape velocity of the planet in km/s." .
+
+:rotationPeriod rdf:type rdf:Property ;
+    rdfs:label "rotation period" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Rotation period of the planet in hours." .
+
+:lengthOfDay rdf:type rdf:Property ;
+    rdfs:label "length of day" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Length of a day on the planet in hours." .
+
+:distanceFromSun rdf:type rdf:Property ;
+    rdfs:label "distance from Sun" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Average distance of the planet from the Sun in million km." .
+
+:meanTemperature rdf:type rdf:Property ;
+    rdfs:label "mean temperature" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Mean surface temperature of the planet in Celsius." .
+
+:numberOfMoons rdf:type rdf:Property ;
+    rdfs:label "number of moons" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Number of moons orbiting the planet." .
+
+:ringSystem rdf:type rdf:Property ;
+    rdfs:label "ring system" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Indicates if the planet has a ring system." .
+
+:globalMagneticField rdf:type rdf:Property ;
+    rdfs:label "global magnetic field" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Indicates if the planet has a global magnetic field." .
+
+:atmosphericComposition rdf:type rdf:Property ;
+    rdfs:label "atmospheric composition" ;
+    rdfs:domain :Planet ;
+    rdfs:range rdf:Bag ;
+    rdfs:comment "The atmospheric composition of the planet." .
+
+:perihelion106km rdf:type rdf:Property ;
+    rdfs:label "Perihelion106km" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The closest distance of the planet to the Sun in million km." .
+
+:aphelion106km rdf:type rdf:Property ;
+    rdfs:label "Aphelion106km" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The farthest distance of the planet from the Sun in million km." .
+
+:orbitalperioddays rdf:type rdf:Property ;
+    rdfs:label "Orbitalperioddays" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The time taken by the planet to complete one orbit around the Sun, in days." .
+
+:orbitalvelocitykms rdf:type rdf:Property ;
+    rdfs:label "Orbitalvelocitykms" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The average orbital speed of the planet in km/s." .
+
+:orbitaleccentricity rdf:type rdf:Property ;
+    rdfs:label "Orbitaleccentricity" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The measure of how elliptical the planet's orbit is." .
+
+:obliquitytoorbitdegrees rdf:type rdf:Property ;
+    rdfs:label "Obliquitytoorbitdegrees" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The tilt of the planet's axis relative to its orbit, in degrees." .
+
+:surfacepressurebars rdf:type rdf:Property ;
+    rdfs:label "Surfacepressurebars" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The atmospheric pressure at the planet's surface, in bars." .
+
+:surfacetemperaturec rdf:type rdf:Property ;
+    rdfs:label "Surfacetemperaturec" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The average surface temperature of the planet, in degrees Celsius." .
+
+:atmosphericpressurebars rdf:type rdf:Property ;
+    rdfs:label "Atmosphericpressurebars" ;
+    rdfs:domain :Planet ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The pressure of the atmosphere at the surface, in bars." .
+
+:surfacefeatures rdf:type rdf:Property ;
+    rdfs:label "Surfacefeatures" ;
+    rdfs:domain :Planet ;
+    rdfs:range rdf:Bag ;
+    rdfs:comment "Distinctive features found on the planet's surface." .
+
+:composition rdf:type rdf:Property ;
+    rdfs:label "Composition" ;
+    rdfs:domain :Planet ;
+    rdfs:range rdf:Bag ;
+    rdfs:comment "The overall chemical composition of the planet." .
+
+### Solar System
+<http://example.org/solarsystem> :has_Planets :Mercury, :Venus, :Earth, :Mars, :Jupiter, :Saturn, :Uranus, :Neptune .
+### Properties for moons
+:gm rdf:type rdf:Property ;
+    rdfs:label "Gravitational parameter" ;
+    rdfs:domain :satellite ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The gravitational parameter of the moon." .
+
+:radius rdf:type rdf:Property ;
+    rdfs:label "Radius" ;
+    rdfs:domain :satellite ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The radius of the moon in kilometers." .
+
+:density rdf:type rdf:Property ;
+    rdfs:label "Density" ;
+    rdfs:domain :satellite ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The density of the moon in g/cm^3." .
+
+:magnitude rdf:type rdf:Property ;
+    rdfs:label "Apparent Magnitude" ;
+    rdfs:domain :satellite ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The apparent magnitude of the moon." .
+
+:albedo rdf:type rdf:Property ;
+    rdfs:label "Albedo" ;
+    rdfs:domain :satellite ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The reflectivity of the moon." .
+
+:Mars rdf:type :Planet ;
+    rdfs:label "Mars" ;
+    :colorPlanet [ rdf:_1 "Red" ; rdf:_2 "Brown and Tan" ] ;
+    :atmosphericComposition [ rdf:_1 "Carbon Dioxide (95.3%)" ] ;
+    :mass 0.642 ;
+    :diameter 6779 ;
+    :density 3933 ;
+    :surfaceGravity 3.7 ;
+    :escapeVelocity 5.0 ;
+    :rotationPeriod 24.6 ;
+    :lengthOfDay 24.7 ;
+    :distanceFromSun 227.9 ;
+    :meanTemperature -65 ;
+    :numberOfMoons 2 ;
+    :ringSystem "No" ;
+    :globalMagneticField "No" ;
+     :perihelion "206.6"^^xsd:decimal ;
+    :aphelion "249.2"^^xsd:decimal ;
+    :orbitalPeriod "687"^^xsd:decimal ;
+    :orbitalVelocity "24.1"^^xsd:decimal ;
+    :orbitalEccentricity "0.093"^^xsd:decimal ;
+    :obliquityToOrbit "25.2"^^xsd:decimal ;
+    :surfacePressure "0.006"^^xsd:decimal ;
+    :surfaceTemperature "-87 to -5" ;
+    :atmosphericPressure "0.006"^^xsd:decimal ;
+    :surfaceFeatures [
+        rdf:type rdf:Bag ;
+        rdf:_1 "Canyons" ;
+        rdf:_2 "Volcanoes" ;
+        rdf:_3 "Craters"
+    ] ;
+    :composition [
+        rdf:type rdf:Bag ;
+        rdf:_1 "Iron Oxide" ;
+        rdf:_2 "Silicates"
+     ];
+    :hasSatellite [
+    rdf:type rdf:Bag ;
+    rdf:_1 :Phobos ;
+    rdf:_2 :Deimos
+] .
+
+ ### satellite: Phobos
+    :Phobos rdf:type :satellite ;
+        rdfs:label "Phobos" ;
+        :gm "0.0007112±0.0000010" ;
+        :radius "11.1±0.15" ;
+        :density "1.872±0.076" ;
+        :magnitude "11.4±0.2" ;
+        :albedo "0.071±0.012" ;
+        :hasSatellite :Mars .  # Linking satellite to its planet
+    
+    ### satellite: Deimos
+    :Deimos rdf:type :satellite ;
+        rdfs:label "Deimos" ;
+        :gm "0.0000985±0.0000024" ;
+        :radius "6.2±0.18" ;
+        :density "1.471±0.166" ;
+        :magnitude "12.45±0.05" ;
+        :albedo "0.068±0.007" ;
+        :hasSatellite :Mars .  # Linking satellite to its planet
+
+:Saturn rdf:type :Planet ;
+    rdfs:label "Saturn" ;
+    :colorPlanet [ rdf:_1 "Golden" ; rdf:_2 "Brown" ; rdf:_3 "Blue-Gray" ] ;
+    :atmosphericComposition [ rdf:_1 "Hydrogen" ; rdf:_2 "Helium" ] ;
+    :mass 568 ;
+    :diameter 116460 ;
+    :density 687 ;
+    :surfaceGravity 10.4 ;
+    :escapeVelocity 35.5 ;
+    :rotationPeriod 10.7 ;
+    :lengthOfDay 10.7 ;
+    :distanceFromSun 1433.5 ;
+    :meanTemperature -140 ;
+    :numberOfMoons 83 ;
+    :ringSystem "Yes" ;
+    :globalMagneticField "Yes" ;
+     :perihelion "1350"^^xsd:decimal ;
+    :aphelion "1514.5"^^xsd:decimal ;
+    :orbitalPeriod "10759"^^xsd:decimal ;
+    :orbitalVelocity "9.7"^^xsd:decimal ;
+    :orbitalEccentricity "0.057"^^xsd:decimal ;
+    :obliquityToOrbit "26.7"^^xsd:decimal ;
+    :surfacePressure "Unknown" ;
+    :surfaceTemperature "-139" ;
+    :atmosphericPressure "Unknown" ;
+    :surfaceFeatures [
+        rdf:type rdf:Bag ;
+        rdf:_1 "Rings" ;
+        rdf:_2 "Hexagonal Storm"
+    ] ;
+    :composition [
+        rdf:type rdf:Bag ;
+        rdf:_1 "Hydrogen" ;
+        rdf:_2 "Helium"
+    ] ;
+    :hasSatellite [
+    rdf:type rdf:Bag ;
+    rdf:_1 :Mimas ;
+    rdf:_2 :Enceladus ;
+    rdf:_3 :Tethys ;
+    rdf:_4 :Dione ;
+    rdf:_5 :Rhea ;
+    rdf:_6 :Titan ;
+    rdf:_7 :Hyperion ;
+    rdf:_8 :Iapetus ;
+    rdf:_9 :Phoebe ;
+    rdf:_10 :Janus ;
+    rdf:_11 :Epimetheus ;
+    rdf:_12 :Helene ;
+    rdf:_13 :Telesto ;
+    rdf:_14 :Calypso ;
+    rdf:_15 :Atlas ;
+    rdf:_16 :Prometheus ;
+    rdf:_17 :Pandora ;
+    rdf:_18 :Pan ;
+    rdf:_19 :Methone ;
+    rdf:_20 :Pallene ;
+    rdf:_21 :Polydeuces ;
+    rdf:_22 :Daphnis ;
+    rdf:_23 :Anthe ;
+    rdf:_24 :Aegaeon ;
+    rdf:_25 :Ymir ;
+    rdf:_26 :Paaliaq ;
+    rdf:_27 :Tarvos ;
+    rdf:_28 :Ijiraq ;
+    rdf:_29 :Suttungr ;
+    rdf:_30 :Kiviuq ;
+    rdf:_31 :Mundilfari ;
+    rdf:_32 :Albiorix ;
+    rdf:_33 :Skathi ;
+    rdf:_34 :Erriapus ;
+    rdf:_35 :Siarnaq ;
+    rdf:_36 :Thrymr ;
+    rdf:_37 :Narvi ;
+    rdf:_38 :Aegir ;
+    rdf:_39 :Bebhionn ;
+    rdf:_40 :Bergelmir ;
+    rdf:_41 :Bestla ;
+    rdf:_42 :Farbauti ;
+    rdf:_43 :Fenrir ;
+    rdf:_44 :Fornjot ;
+    rdf:_45 :Hati ;
+    rdf:_46 :Hyrrokkin ;
+    rdf:_47 :Kari ;
+    rdf:_48 :Loge ;
+    rdf:_49 :Skoll ;
+    rdf:_50 :Surtur ;
+    rdf:_51 :Jarnsaxa ;
+    rdf:_52 :Greip ;
+    rdf:_53 :Tarqeq ;
+    rdf:_54 :S_2004_S7 ;
+    rdf:_55 :S_2004_S12 ;
+    rdf:_56 :S_2004_S13 ;
+    rdf:_57 :S_2004_S17 ;
+    rdf:_58 :S_2006_S1 ;
+    rdf:_59 :S_2006_S3 ;
+    rdf:_60 :S_2007_S2 ;
+    rdf:_61 :S_2007_S3
+] .
+
+
+ ### satellite: Mimas
+    :Mimas rdf:type :satellite ;
+        rdfs:label "Mimas" ;
+        :gm "2.5026±0.0006" ;
+        :radius "198.20±0.25" ;
+        :density "1.150±0.004" ;
+        :magnitude "12.8" ;
+        :albedo "0.962±0.004" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Enceladus
+    :Enceladus rdf:type :satellite ;
+        rdfs:label "Enceladus" ;
+        :gm "7.2027±0.0125" ;
+        :radius "252.10±0.10" ;
+        :density "1.608±0.003" ;
+        :magnitude "11.8" ;
+        :albedo "1.375±0.008" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Tethys
+    :Tethys rdf:type :satellite ;
+        rdfs:label "Tethys" ;
+        :gm "41.2067±0.0038" ;
+        :radius "533.00±0.70" ;
+        :density "0.973±0.004" ;
+        :magnitude "10.2" ;
+        :albedo "1.229±0.005" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Dione
+    :Dione rdf:type :satellite ;
+        rdfs:label "Dione" ;
+        :gm "73.1146±0.0015" ;
+        :radius "561.70±0.45" ;
+        :density "1.476±0.004" ;
+        :magnitude "10.4" ;
+        :albedo "0.998±0.004" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Rhea
+    :Rhea rdf:type :satellite ;
+        rdfs:label "Rhea" ;
+        :gm "153.9426±0.0037" ;
+        :radius "764.30±1.10" ;
+        :density "1.233±0.005" ;
+        :magnitude "9.6" ;
+        :albedo "0.949±0.003" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Titan
+    :Titan rdf:type :satellite ;
+        rdfs:label "Titan" ;
+        :gm "8978.1382±0.0020" ;
+        :radius "2574.73±0.09" ;
+        :density "1.882±0.001" ;
+        :magnitude "8.4" ;
+        :albedo "0.2" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Hyperion
+    :Hyperion rdf:type :satellite ;
+        rdfs:label "Hyperion" ;
+        :gm "0.3727±0.0012" ;
+        :radius "135.00±4.00" ;
+        :density "0.544±0.050" ;
+        :magnitude "14.4" ;
+        :albedo "0.3" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Iapetus
+    :Iapetus rdf:type :satellite ;
+        rdfs:label "Iapetus" ;
+        :gm "120.5038±0.0080" ;
+        :radius "735.60±1.50" ;
+        :density "1.083±0.007" ;
+        :magnitude "11" ;
+        :albedo "0.6" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Phoebe
+    :Phoebe rdf:type :satellite ;
+        rdfs:label "Phoebe" ;
+        :gm "0.5532±0.0006" ;
+        :radius "106.50±0.70" ;
+        :density "1.638±0.033" ;
+        :magnitude "16.4" ;
+        :albedo "0.081±0.002" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Janus
+    :Janus rdf:type :satellite ;
+        rdfs:label "Janus" ;
+        :gm "0.1263±0.0087" ;
+        :radius "89.5±1.5" ;
+        :density "0.630±0.030" ;
+        :magnitude "14.4" ;
+        :albedo "0.71±0.02" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Epimetheus
+    :Epimetheus rdf:type :satellite ;
+        rdfs:label "Epimetheus" ;
+        :gm "0.0351±0.0047" ;
+        :radius "58.1±1.8" ;
+        :density "0.640±0.062" ;
+        :magnitude "15.6" ;
+        :albedo "0.73±0.03" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Helene
+    :Helene rdf:type :satellite ;
+        rdfs:label "Helene" ;
+        :gm "0.00076" ;
+        :radius "17.6±0.4" ;
+        :density "0.5" ;
+        :magnitude "18.4" ;
+        :albedo "1.67±0.20" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Telesto
+    :Telesto rdf:type :satellite ;
+        rdfs:label "Telesto" ;
+        :gm "0.00027" ;
+        :radius "12.4±0.4" ;
+        :density "0.5" ;
+        :magnitude "18.5" ;
+        :albedo "1.0" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Calypso
+    :Calypso rdf:type :satellite ;
+        rdfs:label "Calypso" ;
+        :gm "0.00017" ;
+        :radius "10.7±0.7" ;
+        :density "0.5" ;
+        :magnitude "18.7" ;
+        :albedo "1.34±0.10" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Atlas
+    :Atlas rdf:type :satellite ;
+        rdfs:label "Atlas" ;
+        :gm "0.00044±0.00015" ;
+        :radius "15.1±1.2" ;
+        :density "0.460±0.110" ;
+        :magnitude "19.0" ;
+        :albedo "0.4" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Prometheus
+    :Prometheus rdf:type :satellite ;
+        rdfs:label "Prometheus" ;
+        :gm "0.01074±0.00285" ;
+        :radius "43.1±2.7" ;
+        :density "0.480±0.090" ;
+        :magnitude "15.8" ;
+        :albedo "0.6" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Pandora
+    :Pandora rdf:type :satellite ;
+        rdfs:label "Pandora" ;
+        :gm "0.00924±0.00152" ;
+        :radius "40.7±1.5" ;
+        :density "0.490±0.060" ;
+        :magnitude "16.4" ;
+        :albedo "0.5" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Pan
+    :Pan rdf:type :satellite ;
+        rdfs:label "Pan" ;
+        :gm "0.00033±0.00015" ;
+        :radius "14.1±1.3" ;
+        :density "0.420±0.150" ;
+        :magnitude "19.4" ;
+        :albedo "0.5" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Methone
+    :Methone rdf:type :satellite ;
+        rdfs:label "Methone" ;
+        :gm "0.0000006" ;
+        :radius "1.6±0.6" ;
+        :density "0.5" ;
+        :magnitude "?" ;
+        :albedo "?" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Pallene
+    :Pallene rdf:type :satellite ;
+        rdfs:label "Pallene" ;
+        :gm "0.0000022" ;
+        :radius "2.5±0.6" ;
+        :density "0.5" ;
+        :magnitude "?" ;
+        :albedo "?" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Polydeuces
+    :Polydeuces rdf:type :satellite ;
+        rdfs:label "Polydeuces" ;
+        :gm "0.0000003" ;
+        :radius "1.3±0.4" ;
+        :density "0.5" ;
+        :magnitude "?" ;
+        :albedo "?" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Daphnis
+    :Daphnis rdf:type :satellite ;
+        rdfs:label "Daphnis" ;
+        :gm "0.0000052±0.0000052" ;
+        :radius "3.8±0.8" ;
+        :density "0.340±0.260" ;
+        :magnitude "?" ;
+        :albedo "?" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Anthe
+    :Anthe rdf:type :satellite ;
+        rdfs:label "Anthe" ;
+        :gm "0.0000001" ;
+        :radius "0.9" ;
+        :density "0.5" ;
+        :magnitude "?" ;
+        :albedo "?" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Aegaeon
+    :Aegaeon rdf:type :satellite ;
+        rdfs:label "Aegaeon" ;
+        :gm "0.000000004" ;
+        :radius "0.3" ;
+        :density "0.5" ;
+        :magnitude "?" ;
+        :albedo "?" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Ymir
+    :Ymir rdf:type :satellite ;
+        rdfs:label "Ymir" ;
+        :gm "0.00033" ;
+        :radius "9" ;
+        :density "2.3" ;
+        :magnitude "21.9R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Paaliaq
+    :Paaliaq rdf:type :satellite ;
+        rdfs:label "Paaliaq" ;
+        :gm "0.00055" ;
+        :radius "11.0" ;
+        :density "2.3" ;
+        :magnitude "21.1R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Tarvos
+    :Tarvos rdf:type :satellite ;
+        rdfs:label "Tarvos" ;
+        :gm "0.00018" ;
+        :radius "7.5" ;
+        :density "2.3" ;
+        :magnitude "22.7R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Ijiraq
+    :Ijiraq rdf:type :satellite ;
+        rdfs:label "Ijiraq" ;
+        :gm "0.000080" ;
+        :radius "6" ;
+        :density "2.3" ;
+        :magnitude "22.6R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Suttungr
+    :Suttungr rdf:type :satellite ;
+        rdfs:label "Suttungr" ;
+        :gm "0.000014" ;
+        :radius "3.5" ;
+        :density "2.3" ;
+        :magnitude "23.9R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Kiviuq
+    :Kiviuq rdf:type :satellite ;
+        rdfs:label "Kiviuq" ;
+        :gm "0.00022" ;
+        :radius "8" ;
+        :density "2.3" ;
+        :magnitude "22.1R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Mundilfari
+    :Mundilfari rdf:type :satellite ;
+        rdfs:label "Mundilfari" ;
+        :gm "0.000014" ;
+        :radius "3.5" ;
+        :density "2.3" ;
+        :magnitude "23.8R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Albiorix
+    :Albiorix rdf:type :satellite ;
+        rdfs:label "Albiorix" ;
+        :gm "0.0014" ;
+        :radius "16" ;
+        :density "2.3" ;
+        :magnitude "20.5R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Skathi
+    :Skathi rdf:type :satellite ;
+        rdfs:label "Skathi" ;
+        :gm "0.000021" ;
+        :radius "4" ;
+        :density "2.3" ;
+        :magnitude "23.6R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Erriapus
+    :Erriapus rdf:type :satellite ;
+        rdfs:label "Erriapus" ;
+        :gm "0.000051" ;
+        :radius "5" ;
+        :density "2.3" ;
+        :magnitude "23.4R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Siarnaq
+    :Siarnaq rdf:type :satellite ;
+        rdfs:label "Siarnaq" ;
+        :gm "0.0026" ;
+        :radius "20" ;
+        :density "2.3" ;
+        :magnitude "19.9R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Thrymr
+    :Thrymr rdf:type :satellite ;
+        rdfs:label "Thrymr" ;
+        :gm "0.000014" ;
+        :radius "3.5" ;
+        :density "2.3" ;
+        :magnitude "23.9R" ;
+        :albedo "0.06" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Narvi
+    :Narvi rdf:type :satellite ;
+        rdfs:label "Narvi" ;
+        :gm "0.000023" ;
+        :radius "3.5" ;
+        :density "2.3" ;
+        :magnitude "23.8R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Aegir
+    :Aegir rdf:type :satellite ;
+        rdfs:label "Aegir" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.4R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Bebhionn
+    :Bebhionn rdf:type :satellite ;
+        rdfs:label "Bebhionn" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.1R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Bergelmir
+    :Bergelmir rdf:type :satellite ;
+        rdfs:label "Bergelmir" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.2R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Bestla
+    :Bestla rdf:type :satellite ;
+        rdfs:label "Bestla" ;
+        :gm "0.000000" ;
+        :radius "3.5" ;
+        :density "2.3" ;
+        :magnitude "23.8R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Farbauti
+    :Farbauti rdf:type :satellite ;
+        rdfs:label "Farbauti" ;
+        :gm "0.000000" ;
+        :radius "2.5" ;
+        :density "2.3" ;
+        :magnitude "24.7R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Fenrir
+    :Fenrir rdf:type :satellite ;
+        rdfs:label "Fenrir" ;
+        :gm "0.000000" ;
+        :radius "2.0" ;
+        :density "2.3" ;
+        :magnitude "25.0R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Fornjot
+    :Fornjot rdf:type :satellite ;
+        rdfs:label "Fornjot" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.6R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Hati
+    :Hati rdf:type :satellite ;
+        rdfs:label "Hati" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.4R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Hyrrokkin
+    :Hyrrokkin rdf:type :satellite ;
+        rdfs:label "Hyrrokkin" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "23.5R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Kari
+    :Kari rdf:type :satellite ;
+        rdfs:label "Kari" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "23.9R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Loge
+    :Loge rdf:type :satellite ;
+        rdfs:label "Loge" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.6R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Skoll
+    :Skoll rdf:type :satellite ;
+        rdfs:label "Skoll" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.5R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Surtur
+    :Surtur rdf:type :satellite ;
+        rdfs:label "Surtur" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.8R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Jarnsaxa
+    :Jarnsaxa rdf:type :satellite ;
+        rdfs:label "Jarnsaxa" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.7R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Greip
+    :Greip rdf:type :satellite ;
+        rdfs:label "Greip" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.4R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: Tarqeq
+    :Tarqeq rdf:type :satellite ;
+        rdfs:label "Tarqeq" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "23.9R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: S_2004 S7
+    :S_2004_S7 rdf:type :satellite ;
+        rdfs:label "S_2004 S7" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.5R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: S_2004 S12
+    :S_2004_S12 rdf:type :satellite ;
+        rdfs:label "S_2004 S12" ;
+        :gm "0.000000" ;
+        :radius "2.5" ;
+        :density "2.3" ;
+        :magnitude "24.8R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: S_2004 S13
+    :S_2004_S13 rdf:type :satellite ;
+        rdfs:label "S_2004 S13" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.5R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: S_2004 S17
+    :S_2004_S17 rdf:type :satellite ;
+        rdfs:label "S_2004 S17" ;
+        :gm "0.000000" ;
+        :radius "2.0" ;
+        :density "2.3" ;
+        :magnitude "25.2R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: S_2006 S1
+    :S_2006_S1 rdf:type :satellite ;
+        rdfs:label "S_2006 S1" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.6R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: S_2006 S3
+    :S_2006_S3 rdf:type :satellite ;
+        rdfs:label "S_2006 S3" ;
+        :gm "0.000000" ;
+        :radius "2.5" ;
+        :density "2.3" ;
+        :magnitude "24.6R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: S_2007 S2
+    :S_2007_S2 rdf:type :satellite ;
+        rdfs:label "S_2007 S2" ;
+        :gm "0.000000" ;
+        :radius "3.0" ;
+        :density "2.3" ;
+        :magnitude "24.4R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet
+    
+    ### satellite: S_2007 S3
+    :S_2007_S3 rdf:type :satellite ;
+        rdfs:label "S_2007 S3" ;
+        :gm "0.000000" ;
+        :radius "2.0" ;
+        :density "2.3" ;
+        :magnitude "24.9R" ;
+        :albedo "0.04" ;
+        :hasSatellite :Saturn .  # Linking satellite to its planet

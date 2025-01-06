@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ex="http://example.org/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+>
+  <!-- Define Classes -->
+  <rdf:Description rdf:about="http://example.org/Planet">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label>Planet</rdfs:label>
+    <rdfs:comment>A celestial body orbiting a star.</rdfs:comment>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/Moon">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label>Moon</rdfs:label>
+    <rdfs:comment>A natural satellite orbiting a planet.</rdfs:comment>
+  </rdf:Description>
+
+  <!-- Define Properties -->
+  <rdf:Description rdf:about="http://example.org/hasMoon">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Planet"/>
+    <rdfs:range rdf:resource="http://example.org/Moon"/>
+    <rdfs:label>has Moon</rdfs:label>
+    <rdfs:comment>Links a planet to its moon.</rdfs:comment>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/orbits">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/Moon"/>
+    <rdfs:range rdf:resource="http://example.org/Planet"/>
+    <rdfs:label>orbits</rdfs:label>
+    <rdfs:comment>Links a moon to the planet it orbits.</rdfs:comment>
+  </rdf:Description>
+
+  <!-- Mars -->
+  <rdf:Description rdf:about="http://example.org/planet/Mars">
+    <rdf:type rdf:resource="http://example.org/Planet"/>
+    <ex:hasColor>Red, Brown and Tan</ex:hasColor>
+    <ex:hasMass rdf:datatype="xsd:double">0.642</ex:hasMass>
+    <ex:hasDiameter rdf:datatype="xsd:integer">6792</ex:hasDiameter>
+    <ex:hasDensity rdf:datatype="xsd:integer">3934</ex:hasDensity>
+    <ex:hasSurfaceGravity rdf:datatype="xsd:double">3.7</ex:hasSurfaceGravity>
+    <ex:hasEscapeVelocity rdf:datatype="xsd:double">5.0</ex:hasEscapeVelocity>
+    <ex:hasRotationPeriod rdf:datatype="xsd:double">24.6</ex:hasRotationPeriod>
+    <ex:hasLengthOfDay rdf:datatype="xsd:double">24.7</ex:hasLengthOfDay>
+    <ex:hasDistanceFromSun rdf:datatype="xsd:double">228.0</ex:hasDistanceFromSun>
+    <ex:hasMeanTemperature rdf:datatype="xsd:integer">-65</ex:hasMeanTemperature>
+    <ex:hasSurfacePressure rdf:datatype="xsd:double">0.01</ex:hasSurfacePressure>
+    <ex:hasNumberOfMoons rdf:datatype="xsd:integer">2</ex:hasNumberOfMoons>
+    <ex:hasRingSystem>False</ex:hasRingSystem>
+    <ex:hasGlobalMagneticField>False</ex:hasGlobalMagneticField>
+    <ex:hasSurfaceTemperature>-153 to 20</ex:hasSurfaceTemperature>
+    <ex:hasAtmosphericComposition>Carbon Dioxide (95.3%)</ex:hasAtmosphericComposition>
+    <ex:hasSurfaceFeatures>Valles Marineris, Olympus Mons</ex:hasSurfaceFeatures>
+    <ex:hasComposition>Rock and Ice</ex:hasComposition>
+    
+    <!-- Link to Moons (if specific moons are defined) -->
+    <!-- Example:
+    <ex:hasMoon rdf:resource="http://example.org/moon/Phobos"/>
+    <ex:hasMoon rdf:resource="http://example.org/moon/Deimos"/>
+    -->
+  </rdf:Description>
+
+  <!-- Earth -->
+  <rdf:Description rdf:about="http://example.org/planet/Earth">
+    <rdf:type rdf:resource="http://example.org/Planet"/>
+    <ex:hasColor>Blue, Brown Green and White</ex:hasColor>
+    <ex:hasMass rdf:datatype="xsd:double">5.97</ex:hasMass>
+    <ex:hasDiameter rdf:datatype="xsd:integer">12756</ex:hasDiameter>
+    <ex:hasDensity rdf:datatype="xsd:integer">5514</ex:hasDensity>
+    <ex:hasSurfaceGravity rdf:datatype="xsd:double">9.8</ex:hasSurfaceGravity>
+    <ex:hasEscapeVelocity rdf:datatype="xsd:double">11.2</ex:hasEscapeVelocity>
+    <ex:hasRotationPeriod rdf:datatype="xsd:double">23.9</ex:hasRotationPeriod>
+    <ex:hasLengthOfDay rdf:datatype="xsd:double">24.0</ex:hasLengthOfDay>
+    <ex:hasDistanceFromSun rdf:datatype="xsd:double">149.6</ex:hasDistanceFromSun>
+    <ex:hasMeanTemperature rdf:datatype="xsd:integer">15</ex:hasMeanTemperature>
+    <ex:hasSurfacePressure rdf:datatype="xsd:double">1</ex:hasSurfacePressure>
+    <ex:hasNumberOfMoons rdf:datatype="xsd:integer">1</ex:hasNumberOfMoons>
+    <ex:hasRingSystem>False</ex:hasRingSystem>
+    <ex:hasGlobalMagneticField>True</ex:hasGlobalMagneticField>
+    <ex:hasSurfaceTemperature>-89 to 58</ex:hasSurfaceTemperature>
+    <ex:hasAtmosphericComposition>Nitrogen (78.1%), Oxygen</ex:hasAtmosphericComposition>
+    <ex:hasSurfaceFeatures>Mountains, Oceans, Forests</ex:hasSurfaceFeatures>
+    <ex:hasComposition>Rock, Water, and Air</ex:hasComposition>
+    
+    <!-- Link to Moon (if specific moons are defined) -->
+    <!-- Example:
+    <ex:hasMoon rdf:resource="http://example.org/moon/Moon"/>
+    -->
+  </rdf:Description>
+
+  <!-- Jupiter -->
+  <rdf:Description rdf:about="http://example.org/planet/Jupiter">
+    <rdf:type rdf:resource="http://example.org/Planet"/>
+    <ex:hasColor>Brown, Orange and Tan, with White cloud stripes</ex:hasColor>
+    <ex:hasMass rdf:datatype="xsd:double">1898.0</ex:hasMass>
+    <ex:hasDiameter rdf:datatype="xsd:integer">142984</ex:hasDiameter>
+    <ex:hasDensity rdf:datatype="xsd:integer">1326</ex:hasDensity>
+    <ex:hasSurfaceGravity rdf:datatype="xsd:double">23.1</ex:hasSurfaceGravity>
+    <ex:hasEscapeVelocity rdf:datatype="xsd:double">59.5</ex:hasEscapeVelocity>
+    <ex:hasRotationPeriod rdf:datatype="xsd:double">9.9</ex:hasRotationPeriod>
+    <ex:hasLengthOfDay rdf:datatype="xsd:double">9.9</ex:hasLengthOfDay>
+    <ex:hasDistanceFromSun rdf:datatype="xsd:double">778.5</ex:hasDistanceFromSun>
+    <ex:hasMeanTemperature rdf:datatype="xsd:integer">-110</ex:hasMeanTemperature>
+    <ex:hasSurfacePressure rdf:datatype="xsd:string">Unknown</ex:hasSurfacePressure>
+    <ex:hasNumberOfMoons rdf:datatype="xsd:integer">79</ex:hasNumberOfMoons>
+    <ex:hasRingSystem>True</ex:hasRingSystem>
+    <ex:hasGlobalMagneticField>True</ex:hasGlobalMagneticField>
+    <ex:hasSurfaceTemperature>-108 to -150</ex:hasSurfaceTemperature>
+    <ex:hasAtmosphericComposition>Hydrogen, Helium</ex:hasAtmosphericComposition>
+    <ex:hasSurfaceFeatures>Great Red Spot, Jupiter's Rings</ex:hasSurfaceFeatures>
+    <ex:hasComposition>Gas and Liquid</ex:hasComposition>
+    
+    <!-- Link to Moons (if specific moons are defined) -->
+    <!-- Example:
+    <ex:hasMoon rdf:resource="http://example.org/moon/Io"/>
+    <ex:hasMoon rdf:resource="http://example.org/moon/Europa"/>
+    -->
+  </rdf:Description>
+
+  <!-- Neptune -->
+  <rdf:Description rdf:about="http://example.org/planet/Neptune">
+    <rdf:type rdf:resource="http://example.org/Planet"/>
+    <ex:hasColor>Blue</ex:hasColor>
+    <ex:hasMass rdf:datatype="xsd:double">102.0</ex:hasMass>
+    <ex:hasDiameter rdf:datatype="xsd:integer">49528</ex:hasDiameter>
+    <ex:hasDensity rdf:datatype="xsd:integer">1638</ex:hasDensity>
+    <ex:hasSurfaceGravity rdf:datatype="xsd:double">11.0</ex:hasSurfaceGravity>
+    <ex:hasEscapeVelocity rdf:datatype="xsd:double">23.5</ex:hasEscapeVelocity>
+    <ex:hasRotationPeriod rdf:datatype="xsd:double">16.1</ex:hasRotationPeriod>
+    <ex:hasLengthOfDay rdf:datatype="xsd:double">16.1</ex:hasLengthOfDay>
+    <ex:hasDistanceFromSun rdf:datatype="xsd:double">4515.0</ex:hasDistanceFromSun>
+    <ex:hasMeanTemperature rdf:datatype="xsd:integer">-200</ex:hasMeanTemperature>
+    <ex:hasSurfacePressure rdf:datatype="xsd:string">Unknown</ex:hasSurfacePressure>
+    <ex:hasNumberOfMoons rdf:datatype="xsd:integer">14</ex:hasNumberOfMoons>
+    <ex:hasRingSystem>True</ex:hasRingSystem>
+    <ex:hasGlobalMagneticField>True</ex:hasGlobalMagneticField>
+    <ex:hasSurfaceTemperature>-201</ex:hasSurfaceTemperature>
+    <ex:hasAtmosphericComposition>Hydrogen, Helium</ex:hasAtmosphericComposition>
+    <ex:hasSurfaceFeatures>Great Dark Spot, Triton's Geysers</ex:hasSurfaceFeatures>
+    <ex:hasComposition>Gas and Ice</ex:hasComposition>
+    
+    <!-- Link to Moons (if specific moons are defined) -->
+    <!-- Example:
+    <ex:hasMoon rdf:resource="http://example.org/moon/Triton"/>
+    -->
+  </rdf:Description>
+
+  <!-- Uranus -->
+  <rdf:Description rdf:about="http://example.org/planet/Uranus">
+    <rdf:type rdf:resource="http://example.org/Planet"/>
+    <ex:hasColor>Blue-Green</ex:hasColor>
+    <ex:hasMass rdf:datatype="xsd:double">86.8</ex:hasMass>
+    <ex:hasDiameter rdf:datatype="xsd:integer">51118</ex:hasDiameter>
+    <ex:hasDensity rdf:datatype="xsd:integer">1270</ex:hasDensity>
+    <ex:hasSurfaceGravity rdf:datatype="xsd:double">8.7</ex:hasSurfaceGravity>
+    <ex:hasEscapeVelocity rdf:datatype="xsd:double">21.3</ex:hasEscapeVelocity>
+    <ex:hasRotationPeriod rdf:datatype="xsd:double">-17.2</ex:hasRotationPeriod>
+    <ex:hasLengthOfDay rdf:datatype="xsd:double">17.2</ex:hasLengthOfDay>
+    <ex:hasDistanceFromSun rdf:datatype="xsd:double">2867.0</ex:hasDistanceFromSun>
+    <ex:hasMeanTemperature rdf:datatype="xsd:integer">-195</ex:hasMeanTemperature>
+    <ex:hasSurfacePressure rdf:datatype="xsd:string">Unknown</ex:hasSurfacePressure>
+    <ex:hasNumberOfMoons rdf:datatype="xsd:integer">27</ex:hasNumberOfMoons>
+    <ex:hasRingSystem>True</ex:hasRingSystem>
+    <ex:hasGlobalMagneticField>True</ex:hasGlobalMagneticField>
+    <ex:hasSurfaceTemperature>-197</ex:hasSurfaceTemperature>
+    <ex:hasAtmosphericComposition>Hydrogen, Helium</ex:hasAtmosphericComposition>
+    <ex:hasSurfaceFeatures>Rings, Miranda's Cliff, Oberon's Craters</ex:hasSurfaceFeatures>
+    <ex:hasComposition>Gas and Ice</ex:hasComposition>
+    
+    <!-- Link to Moons (if specific moons are defined) -->
+    <!-- Example:
+    <ex:hasMoon rdf:resource="http://example.org/moon/Titania"/>
+    <ex:hasMoon rdf:resource="http://example.org/moon/Oberon"/>
+    -->
+  </rdf:Description>
+
+  <!-- Mercury -->
+  <rdf:Description rdf:about="http://example.org/planet/Mercury">
+    <rdf:type rdf:resource="http://example.org/Planet"/>
+    <ex:hasColor>Grey</ex:hasColor>
+    <ex:hasMass rdf:datatype="xsd:double">0.33</ex:hasMass>
+    <ex:hasDiameter rdf:datatype="xsd:integer">4879</ex:hasDiameter>
+    <ex:hasDensity rdf:datatype="xsd:integer">5429</ex:hasDensity>
+    <ex:hasSurfaceGravity rdf:datatype="xsd:double">3.7</ex:hasSurfaceGravity>
+    <ex:hasEscapeVelocity rdf:datatype="xsd:double">4.3</ex:hasEscapeVelocity>
+    <ex:hasRotationPeriod rdf:datatype="xsd:double">1407.6</ex:hasRotationPeriod>
+    <ex:hasLengthOfDay rdf:datatype="xsd:double">4222.6</ex:hasLengthOfDay>
+    <ex:hasDistanceFromSun rdf:datatype="xsd:double">57.9</ex:hasDistanceFromSun>
+    <ex:hasMeanTemperature rdf:datatype="xsd:integer">167</ex:hasMeanTemperature>
+    <ex:hasSurfacePressure rdf:datatype="xsd:double">0</ex:hasSurfacePressure>
+    <ex:hasNumberOfMoons rdf:datatype="xsd:integer">0</ex:hasNumberOfMoons>
+    <ex:hasRingSystem>False</ex:hasRingSystem>
+    <ex:hasGlobalMagneticField>True</ex:hasGlobalMagneticField>
+    <ex:hasSurfaceTemperature>-173 to 427</ex:hasSurfaceTemperature>
+    <ex:hasAtmosphericComposition>Mostly None</ex:hasAtmosphericComposition>
+    <ex:hasSurfaceFeatures>Craters, Scarps</ex:hasSurfaceFeatures>
+    <ex:hasComposition>Rock and Metal</ex:hasComposition>
+  </rdf:Description>
+
+  <!-- Venus -->
+  <rdf:Description rdf:about="http://example.org/planet/Venus">
+    <rdf:type rdf:resource="http://example.org/Planet"/>
+    <ex:hasColor>Brown and Grey</ex:hasColor>
+    <ex:hasMass rdf:datatype="xsd:double">4.87</ex:hasMass>
+    <ex:hasDiameter rdf:datatype="xsd:integer">12104</ex:hasDiameter>
+    <ex:hasDensity rdf:datatype="xsd:integer">5243</ex:hasDensity>
+    <ex:hasSurfaceGravity rdf:datatype="xsd:double">8.9</ex:hasSurfaceGravity>
+    <ex:hasEscapeVelocity rdf:datatype="xsd:double">10.4</ex:hasEscapeVelocity>
+    <ex:hasRotationPeriod rdf:datatype="xsd:double">-5832.5</ex:hasRotationPeriod>
+    <ex:hasLengthOfDay rdf:datatype="xsd:double">2802.0</ex:hasLengthOfDay>
+    <ex:hasDistanceFromSun rdf:datatype="xsd:double">108.2</ex:hasDistanceFromSun>
+    <ex:hasMeanTemperature rdf:datatype="xsd:integer">464</ex:hasMeanTemperature>
+    <ex:hasSurfacePressure rdf:datatype="xsd:double">92</ex:hasSurfacePressure>
+    <ex:hasNumberOfMoons rdf:datatype="xsd:integer">0</ex:hasNumberOfMoons>
+    <ex:hasRingSystem>False</ex:hasRingSystem>
+    <ex:hasGlobalMagneticField>False</ex:hasGlobalMagneticField>
+    <ex:hasSurfaceTemperature>462</ex:hasSurfaceTemperature>
+    <ex:hasAtmosphericComposition>Carbon Dioxide (96.5%)</ex:hasAtmosphericComposition>
+    <ex:hasSurfaceFeatures>Volcanoes, Venusian Plains</ex:hasSurfaceFeatures>
+    <ex:hasComposition>Rock and Metal</ex:hasComposition>
+  </rdf:Description>
+
+  <!-- Saturn -->
+  <rdf:Description rdf:about="http://example.org/planet/Saturn">
+    <rdf:type rdf:resource="http://example.org/Planet"/>
+    <ex:hasColor>Golden, Brown, and Blue-Grey</ex:hasColor>
+    <ex:hasMass rdf:datatype="xsd:double">568.0</ex:hasMass>
+    <ex:hasDiameter rdf:datatype="xsd:integer">120536</ex:hasDiameter>
+    <ex:hasDensity rdf:datatype="xsd:integer">687</ex:hasDensity>
+    <ex:hasSurfaceGravity rdf:datatype="xsd:double">9.0</ex:hasSurfaceGravity>
+    <ex:hasEscapeVelocity rdf:datatype="xsd:double">35.5</ex:hasEscapeVelocity>
+    <ex:hasRotationPeriod rdf:datatype="xsd:double">10.7</ex:hasRotationPeriod>
+    <ex:hasLengthOfDay rdf:datatype="xsd:double">10.7</ex:hasLengthOfDay>
+    <ex:hasDistanceFromSun rdf:datatype="xsd:double">1432.0</ex:hasDistanceFromSun>
+    <ex:hasMeanTemperature rdf:datatype="xsd:integer">-140</ex:hasMeanTemperature>
+    <ex:hasSurfacePressure rdf:datatype="xsd:string">Unknown</ex:hasSurfacePressure>
+    <ex:hasNumberOfMoons rdf:datatype="xsd:integer">82</ex:hasNumberOfMoons>
+    <ex:hasRingSystem>True</ex:hasRingSystem>
+    <ex:hasGlobalMagneticField>True</ex:hasGlobalMagneticField>
+    <ex:hasSurfaceTemperature>-178 to -228</ex:hasSurfaceTemperature>
+    <ex:hasAtmosphericComposition>Hydrogen, Helium</ex:hasAtmosphericComposition>
+    <ex:hasSurfaceFeatures>Rings, Cassini Division, Saturn's Hexagon</ex:hasSurfaceFeatures>
+    <ex:hasComposition>Gas and Liquid</ex:hasComposition>
+    
+    <!-- Link to Moons (if specific moons are defined) -->
+    <!-- Example:
+    <ex:hasMoon rdf:resource="http://example.org/moon/Enceladus"/>
+    <ex:hasMoon rdf:resource="http://example.org/moon/Mimas"/>
+    -->
+  </rdf:Description>
+
+  <!-- Example Moon Instances (Uncomment and modify if you have moon data) -->
+
+  <!-- Mars' Moon Phobos -->
+  <!--
+  <rdf:Description rdf:about="http://example.org/moon/Phobos">
+    <rdf:type rdf:resource="http://example.org/Moon"/>
+    <ex:hasName>Phobos</ex:hasName>
+    <ex:orbits rdf:resource="http://example.org/planet/Mars"/>
+    <ex:hasDiameter rdf:datatype="xsd:integer">22.2</ex:hasDiameter>
+    <ex:hasMass rdf:datatype="xsd:double">0.00001</ex:hasMass>
+  </rdf:Description>
+  -->
+
+  <!-- Mars' Moon Deimos -->
+  <!--
+  <rdf:Description rdf:about="http://example.org/moon/Deimos">
+    <rdf:type rdf:resource="http://example.org/Moon"/>
+    <ex:hasName>Deimos</ex:hasName>
+    <ex:orbits rdf:resource="http://example.org/planet/Mars"/>
+    <ex:hasDiameter rdf:datatype="xsd:integer">12.4</ex:hasDiameter>
+    <ex:hasMass rdf:datatype="xsd:double">0.0000018</ex:hasMass>
+  </rdf:Description>
+  -->
+
+  <!-- Earth's Moon -->
+  <!--
+  <rdf:Description rdf:about="http://example.org/moon/Moon">
+    <rdf:type rdf:resource="http://example.org/Moon"/>
+    <ex:hasName>Moon</ex:hasName>
+    <ex:orbits rdf:resource="http://example.org/planet/Earth"/>
+    <ex:hasDiameter rdf:datatype="xsd:integer">3474.8</ex:hasDiameter>
+    <ex:hasMass rdf:datatype="xsd:double">0.073</ex:hasMass>
+  </rdf:Description>
+  -->
+  
+</rdf:RDF>
